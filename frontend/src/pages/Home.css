@@ -1,0 +1,196 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+:root{
+  --bg:#050506; --text:#f7f7fb; --muted:#92929d;
+  --line:rgba(255,255,255,.10); --glass:rgba(255,255,255,.055);
+  --purple:#9b5cff; --blue:#65c7ff;
+}
+html{scroll-behavior:smooth}
+
+.home-page, .home-page *{box-sizing:border-box}
+.home-page *{margin:0;padding:0}
+
+.home-page{
+  min-height:100vh; color:var(--text);
+  font-family:"DM Sans",sans-serif;
+  background:
+    radial-gradient(circle at 76% 18%,rgba(118,65,255,.18),transparent 27%),
+    radial-gradient(circle at 18% 62%,rgba(50,145,255,.09),transparent 25%),
+    #050506;
+  overflow-x:hidden;
+  position:relative;
+}
+.home-page::before{
+  content:"";position:fixed;inset:0;pointer-events:none;opacity:.28;
+  background-image:linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),
+                   linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);
+  background-size:60px 60px;
+  mask-image:linear-gradient(to bottom,black,transparent 75%);
+}
+.home-page a{text-decoration:none;color:inherit}
+.home-page button{font:inherit;color:inherit;border:0;cursor:pointer}
+
+.home-page .nav{
+  width:min(1160px,calc(100% - 34px)); margin:20px auto 0;
+  height:70px;padding:10px 12px;
+  display:flex;align-items:center;gap:25px;
+  border:1px solid var(--line); border-radius:24px;
+  background:rgba(12,12,15,.68);backdrop-filter:blur(25px);
+  box-shadow:0 20px 70px rgba(0,0,0,.35);
+  position:relative;z-index:5;
+}
+.home-page .brand{display:flex;align-items:center;gap:12px;margin-right:auto}
+.home-page .logo{
+  width:46px;height:46px;border-radius:15px;
+  display:grid;place-items:center;font:700 24px "Space Grotesk";
+  background:linear-gradient(145deg,#22222a,#09090c);
+  border:1px solid rgba(255,255,255,.2);
+  box-shadow:inset 0 1px rgba(255,255,255,.14),0 0 28px rgba(112,85,255,.18);
+  overflow:hidden;
+}
+.home-page .brand span{font:700 21px "Space Grotesk";letter-spacing:.04em}
+.home-page .links{display:flex;gap:6px}
+.home-page .links a{padding:11px 15px;border-radius:15px;color:#bdbdc7;font-size:14px}
+.home-page .links a:hover,.home-page .links a.active{color:#fff;background:rgba(255,255,255,.08)}
+.home-page .nav-actions{display:flex;align-items:center;gap:8px}
+.home-page .icon-btn,.home-page .login{
+  border:1px solid var(--line);background:rgba(255,255,255,.035);
+  border-radius:15px;padding:11px 14px;color:#ddd;
+}
+.home-page .cta{
+  padding:12px 18px;border-radius:15px;color:#08080a;font-weight:700;
+  background:linear-gradient(135deg,#fff,#b8e0ff);
+  box-shadow:0 0 30px rgba(161,202,255,.22);
+}
+
+.home-page .hero{width:min(1160px,calc(100% - 34px));margin:0 auto;padding:100px 0 70px;position:relative}
+.home-page .hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:50px;align-items:center}
+.home-page .badge{
+  display:inline-flex;gap:10px;padding:9px 14px;border:1px solid rgba(128,181,255,.22);
+  background:rgba(70,120,255,.07);border-radius:999px;color:#d8e8ff;font-size:12px;
+  animation:home-float 4s ease-in-out infinite;
+}
+.home-page .dot{width:6px;height:6px;border-radius:50%;background:#73c9ff;box-shadow:0 0 12px #73c9ff;margin-top:4px}
+.home-page h1{
+  margin-top:22px;font:700 clamp(52px,7vw,84px)/.91 "Space Grotesk";letter-spacing:-.065em;
+}
+.home-page .gradient{
+  background:linear-gradient(100deg,#fff 5%,#a36cff 52%,#63caff 92%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.home-page .hero p{margin-top:24px;color:#a3a3ad;max-width:540px;font-size:17px;line-height:1.7}
+.home-page .buttons{display:flex;gap:12px;margin-top:30px}
+.home-page .primary,.home-page .secondary{padding:15px 21px;border-radius:17px;font-weight:700}
+.home-page .primary{background:#f5f5f8;color:#08080a;box-shadow:0 0 38px rgba(178,165,255,.18)}
+.home-page .secondary{border:1px solid var(--line);background:rgba(255,255,255,.04)}
+.home-page .trust{display:flex;align-items:center;gap:13px;margin-top:30px;color:#81818c;font-size:13px}
+.home-page .avatars{display:flex}
+.home-page .avatar{width:27px;height:27px;border-radius:50%;margin-right:-7px;border:2px solid #09090b;background:linear-gradient(135deg,#d6d6dc,#555563)}
+.home-page .stars{color:#ffd76a;letter-spacing:2px}
+
+.home-page .phone-wrap{position:relative;min-height:530px;display:grid;place-items:center}
+.home-page .glow{
+  position:absolute;width:420px;height:420px;border-radius:50%;
+  background:radial-gradient(circle,rgba(132,73,255,.25),transparent 68%);
+  filter:blur(15px);animation:home-pulse 5s ease-in-out infinite;
+}
+.home-page .phone{
+  position:relative;width:275px;height:535px;padding:9px;border-radius:43px;
+  background:linear-gradient(145deg,#3c3c48,#0c0c10 40%,#252530);
+  border:1px solid rgba(255,255,255,.22);
+  box-shadow:-20px 35px 80px rgba(0,0,0,.65),0 0 55px rgba(121,76,255,.20);
+  transform:rotate(5deg);animation:home-phoneFloat 6s ease-in-out infinite;
+}
+.home-page .phone-screen{
+  width:100%;height:100%;border-radius:35px;padding:24px 17px;
+  background:radial-gradient(circle at 80% 15%,rgba(128,74,255,.18),transparent 30%),#0b0b0f;
+  border:1px solid rgba(255,255,255,.08);overflow:hidden;
+}
+.home-page .status{display:flex;justify-content:space-between;font-size:10px;color:#ddd;margin-bottom:35px}
+.home-page .phone-title{font:700 25px "Space Grotesk"}
+.home-page .phone-sub{color:#777783;font-size:11px;margin-top:6px}
+.home-page .drop{
+  margin-top:25px;height:180px;border:1px dashed rgba(143,114,255,.55);
+  border-radius:25px;background:rgba(113,76,255,.055);display:grid;place-items:center;text-align:center;
+  box-shadow:inset 0 0 40px rgba(121,75,255,.05);
+  cursor:pointer;
+}
+.home-page .upload-icon{font-size:34px}
+.home-page .drop small{display:block;color:#777783;margin:7px 0 12px}
+.home-page .mini-btn{padding:9px 13px;border-radius:11px;background:#f1f1f4;color:#08080a;font-size:11px;font-weight:700}
+.home-page .type-row{display:flex;justify-content:space-between;margin-top:19px;color:#7d7d88;font-size:10px}
+.home-page .phone-upload{margin-top:22px;width:100%;padding:12px;border-radius:13px;background:linear-gradient(135deg,#fff,#bce1ff);color:#09090b;font-size:12px;font-weight:700}
+.home-page .file-card{
+  position:absolute;width:225px;padding:15px;border:1px solid rgba(255,255,255,.12);
+  border-radius:19px;background:rgba(18,18,23,.72);backdrop-filter:blur(20px);
+  box-shadow:0 20px 50px rgba(0,0,0,.4);
+}
+.home-page .file-card:nth-of-type(2){right:-5px;top:85px;animation:home-card1 5s ease-in-out infinite}
+.home-page .file-card:nth-of-type(3){left:-10px;bottom:105px;animation:home-card2 5.5s ease-in-out infinite}
+.home-page .file-top{display:flex;gap:10px;align-items:center}
+.home-page .file-icon{width:37px;height:37px;border-radius:11px;display:grid;place-items:center;background:rgba(132,87,255,.15)}
+.home-page .file-name{font-size:12px;font-weight:700}
+.home-page .file-meta{font-size:10px;color:#70707b;margin-top:4px}
+.home-page .file-link{margin-top:12px;padding:8px 10px;border-radius:10px;background:#0b0b0f;color:#8e8e9a;font-size:9px;display:flex;justify-content:space-between}
+
+.home-page .features{width:min(1160px,calc(100% - 34px));margin:0 auto;padding:20px 0 90px}
+.home-page .feature-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.home-page .feature{
+  padding:26px;border:1px solid var(--line);border-radius:24px;background:var(--glass);
+  backdrop-filter:blur(20px);transition:.35s transform,.35s border-color,.35s box-shadow;
+}
+.home-page .feature:hover{transform:translateY(-8px);border-color:rgba(143,102,255,.35);box-shadow:0 20px 60px rgba(0,0,0,.35)}
+.home-page .feature-icon{width:46px;height:46px;border-radius:15px;display:grid;place-items:center;background:rgba(118,86,255,.10);font-size:22px}
+.home-page .feature h3{font:600 17px "Space Grotesk";margin-top:22px}
+.home-page .feature p{font-size:13px;color:#777783;line-height:1.6;margin-top:9px}
+
+.home-page .process{
+  width:min(1160px,calc(100% - 34px));margin:0 auto 90px;padding:35px;
+  border-radius:30px;border:1px solid rgba(104,113,255,.25);
+  background:linear-gradient(100deg,rgba(73,47,140,.12),rgba(20,23,39,.32));
+  box-shadow:inset 0 0 80px rgba(85,65,255,.05);
+}
+.home-page .process h2{font:700 clamp(32px,4vw,52px) "Space Grotesk";letter-spacing:-.05em}
+.home-page .process h2 span{color:#9d6cff}
+.home-page .process-row{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;margin-top:35px}
+.home-page .step{display:flex;gap:16px}
+.home-page .step-num{min-width:45px;height:45px;border-radius:15px;display:grid;place-items:center;background:rgba(255,255,255,.06);border:1px solid var(--line);font-weight:700}
+.home-page .step h4{font:600 15px "Space Grotesk"}
+.home-page .step p{color:#777783;font-size:12px;line-height:1.6;margin-top:5px}
+
+.home-page .toast{
+  position:fixed;left:50%;bottom:25px;transform:translate(-50%,20px);opacity:0;
+  padding:13px 18px;border-radius:14px;background:#f4f4f7;color:#08080a;font-size:13px;font-weight:700;
+  transition:.35s;z-index:20;pointer-events:none;
+}
+.home-page .toast.show{opacity:1;transform:translate(-50%,0)}
+
+@keyframes home-float{50%{transform:translateY(-5px)}}
+@keyframes home-pulse{50%{transform:scale(1.08);opacity:.75}}
+@keyframes home-phoneFloat{50%{transform:rotate(2deg) translateY(-13px)}}
+@keyframes home-card1{50%{transform:translateY(-12px) rotate(-1deg)}}
+@keyframes home-card2{50%{transform:translateY(10px) rotate(1deg)}}
+
+@media(max-width:900px){
+  .home-page .links{display:none}
+  .home-page .hero-grid{grid-template-columns:1fr}
+  .home-page .hero{padding-top:75px}
+  .home-page .phone-wrap{min-height:600px}
+  .home-page .feature-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:560px){
+  .home-page .nav{height:62px}
+  .home-page .brand span{font-size:18px}
+  .home-page .login{display:none}
+  .home-page .nav{padding:7px}
+  .home-page .hero{padding-top:55px}
+  .home-page .hero p{font-size:15px}
+  .home-page .buttons{flex-direction:column}
+  .home-page .phone{width:245px;height:480px}
+  .home-page .file-card{width:180px}
+  .home-page .file-card:nth-of-type(2){right:-15px}
+  .home-page .file-card:nth-of-type(3){left:-18px}
+  .home-page .feature-grid,.home-page .process-row{grid-template-columns:1fr}
+  .home-page .process{padding:25px}
+  .home-page .trust{flex-wrap:wrap}
+}
